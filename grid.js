@@ -36,11 +36,8 @@ function GetColor() {
     let r = Math.round(Math.random()*255);
     let g = Math.round(Math.random()*255);
     let b = Math.round(Math.random()*255);
-    if (hover_v > 0) {
+    if (hover_v > 0.4) {
         hover_v -=0.01
-    }
-    else {
-        hover_v = 1;
     }
     return `rgba(${r}, ${g}, ${b}, ${hover_v})`
 }
