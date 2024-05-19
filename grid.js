@@ -1,17 +1,16 @@
+// Set global variables of the grid
+let g_size = 16; // initial size of the grid 16x16
+let g_width = 40; // width of each square
+let g_height = 40; // height of each square
+let hover_v = 1; // Initial value of hover opacity
 
-let old_size = 16;
-let g_size = 16;
-let g_width = 40;
-let g_height = 40;
-let hover_v = 1;
-
+// function called when clicked on button changeSize
 function ChangeSize() {
     while (1) {
         let new_size = parseInt(prompt("Which size < 100 do you want the grid ('16'=>16x16 grid)", 20), 10);
         if (!(isNaN(new_size)) && new_size<=100) {
             g_size = new_size;
             UpdateGrid();
-            old_size = new_size;
             break;
         }
         if (new_size>100) {
@@ -24,14 +23,15 @@ function ChangeSize() {
     
 }
 
+// Reset the grid with current value of the grid
 function UpdateGrid() {
-    if (old_size > 0) {
-        const container = document.getElementsByClassName("container")[0];
-        container.innerHTML = '';
-    }
+    const container = document.getElementsByClassName("container")[0];
+    container.innerHTML = '';
+    
     GetGrid();
 }
 
+// Function to create the random color when hovering over the square
 function GetColor() {
     let r = Math.round(Math.random()*255);
     let g = Math.round(Math.random()*255);
@@ -42,6 +42,8 @@ function GetColor() {
     return `rgba(${r}, ${g}, ${b}, ${hover_v})`
 }
 
+
+// Function which generate the grid
 function  GetGrid() {
     hover_v = 1;
     const container = document.getElementsByClassName("container")[0];
