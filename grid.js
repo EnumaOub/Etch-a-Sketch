@@ -7,15 +7,15 @@ let hover_v = 1;
 
 function ChangeSize() {
     while (1) {
-        let new_size = parseInt(prompt("Which size < 50 do you want the grid ('16'=>16x16 grid)", 20), 10);
-        if (!(isNaN(new_size)) && new_size<=50) {
+        let new_size = parseInt(prompt("Which size < 100 do you want the grid ('16'=>16x16 grid)", 20), 10);
+        if (!(isNaN(new_size)) && new_size<=100) {
             g_size = new_size;
             UpdateGrid();
             old_size = new_size;
             break;
         }
-        if (new_size>50) {
-            alert(`${new_size} > 50... \nTry Again!`)
+        if (new_size>100) {
+            alert(`${new_size} > 100... \nTry Again!`)
         }
         else {
             alert(`Wrong Entry... \nTry Again!`)
@@ -45,16 +45,15 @@ function GetColor() {
 function  GetGrid() {
     hover_v = 1;
     const container = document.getElementsByClassName("container")[0];
-    const c_width = Math.round(g_size * g_width);
-    container.style["max-width"] = `${c_width}px`;
+    g_width = Math.round(960/g_size)
+    g_height = Math.round(960/g_size)
     let grid_elem;
     for (let i=0; i<g_size; i++) {
         for (let i=0; i<g_size; i++) {
             grid_elem = document.createElement("div");
-            grid_elem.style["border-width"] = "thinner";
-            grid_elem.style.border = "solid white";
+            grid_elem.style.border = "1px solid white";
             grid_elem.style.width = `${g_width}px`;
-            grid_elem.style.height = `${g_width}px`;
+            grid_elem.style.height = `${g_height}px`;
             grid_elem.addEventListener("mouseover", (event) => {
                 event.target.style["background-color"] = GetColor()
             });
