@@ -6,24 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Etch-a-Sketch</title>
-    <script src="grid.js"></script>
 </head>
 
 <body>
     <div class="title">
         <h1>Etch-a-Sketch </h1>
         <p>Welcome to my grid.</p>
-        <p>If you want to change the grid size click on the button below</p>
+        <p>Come Test your drawing skills :)</p>
         <div class="btn">
-            <button onclick="ChangeSize()">Change Size</button>
-            <button onclick="UpdateGrid()">Reset Grid</button>
+            <div class="size">
+                <div>
+                    <input type="range" min="10" max="60" value="16" class="slider" id="nbgrid">
+                    <p class="slider_text">16x16 square</p>
+                </div>
+                <button onclick="ChangeSize()">Change Size</button>
+            </div>
+            <div class="clr-pick">
+                <label for="colorpicker">Pick your color</label>
+                <input type="color" id="colorpicker" name="body" value="#f6b73c" />
+            </div>
+            <button id="picker" onclick="ChooseButton('picker')">Color Picker</button>
+            <button id="random" onclick="ChooseButton('random')">Random Color Picker</button>
+            <button id="shade" onclick="ChooseButton('shade')">Shade Color Picker</button>
+
         </div>
     </div>
-    <div class="container">
-
-
+    <div class="grid">
+        <div class="container"></div>
     </div>
+    <button id="clear" onclick="UpdateGrid()">Clear</button>
 
 </body>
 
+<script src="grid.js"></script>
 </html>
