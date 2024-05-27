@@ -10,6 +10,7 @@ let shade = false; // Initialise shading color
 // Can change the number of square using the slider
 const slider = document.getElementById("nbgrid");
 const slider_value = document.getElementsByClassName("slider_text")[0];
+slider.value = g_size
 slider.oninput = function() {
     g_size = parseInt(this.value);
     slider_value.textContent = `${g_size}x${g_size} squares`
